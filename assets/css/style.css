@@ -1,0 +1,162 @@
+:root{
+    --bg:rgb(36, 36, 36);
+    --gray:rgb(66, 66, 66);
+    --blue:rgb(57, 197, 207);
+    --red:rgb(201, 59, 59);
+    --green:rgb(85, 194, 75);
+    --main:rgba(255, 255, 255, 0.87);
+
+}
+
+*{  
+    color: var(--main);
+    background: var(--bg);
+}
+
+.layout{
+    padding: 1rem 1rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#newToDo{
+    display: flex;
+    justify-content: space-between
+}
+
+
+header h1{
+    font-size: 2.5rem;
+    margin-bottom: 1;
+}
+
+
+input,button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#textarea{
+    flex: auto;
+    background-color:var(--gray) ;
+    padding: 1rem;
+    margin-right: 5em;
+    border-radius: 1rem;
+}
+
+#newInput{
+    width: 30em;
+}
+
+#newDate{
+    padding-left: 12em;
+}
+#newDate::-webkit-calendar-picker-indicator {
+    background-color: var(--main);
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+
+#newSubmit{
+    padding: 1rem 1.5rem;
+    background: var(--gray);
+    border-radius: 20%;
+    cursor: pointer;
+}
+#newSubmit:hover{
+    background-color: var(--green);
+    transition: 0.2s all linear;
+}
+
+#taskListHead{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    height: 3.5rem;
+}
+h2{
+    margin-top: 0.5em;
+}
+#delAll{
+    padding: 0 1rem;
+    background: var(--gray);
+    border-radius: 20%;
+    cursor: pointer;
+}
+#delAll:hover{
+    background-color:var(--red);
+    transition: 0.2s all linear;
+}
+
+
+
+#taskList .taskRecord{
+    margin: 1.2rem 0 1.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--gray);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#taskList .taskRecord .content{
+    color: var(--bg);
+    background-color: var(--gray);
+    width: 42.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+#taskList .taskRecord .actions{
+    color: var(--bg);
+    background-color: var(--gray);
+}
+
+#taskList .taskRecord .content .text{
+    color: var(--main);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+}
+
+#taskList .taskRecord .content .date{
+    width: 10em;
+    text-align: center;
+}
+
+
+#taskList .taskRecord .actions .edit{
+    color: var(--bg);
+    cursor: pointer;
+    margin-right:2.25rem;
+}
+#taskList .taskRecord .actions .edit:hover{
+    color: var(--blue);
+    transition: 0.2s all linear;
+}
+#taskList .taskRecord .actions .save{
+    color: var(--bg);
+    cursor: pointer;
+    margin-right:2.25rem;
+}
+#taskList .taskRecord .actions .save:hover{
+    color: var(--green);
+    transition: 0.2s all linear;
+}
+
+
+
+#taskList .taskRecord .actions .delete{
+    color: var(--bg);
+    cursor: pointer;
+    padding:0 0;
+}
+#taskList .taskRecord .actions .delete:hover{
+    color: var(--red);
+    transition: 0.2s all linear;
+}
+

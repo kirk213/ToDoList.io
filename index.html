@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!--文字コード、ページビュー-->
+        <meta charset="utf-8">
+        <meta name=”viewport” content=”width=device-width,initial-scale=1″>
+        <title>ToDo List</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <header class="layout">
+            <h1>ToDo List</h1>
+            <div>
+                <form id="newToDo">
+                    <div id="textarea">
+                        <input type="text" id="newInput" placeholder="タスクを入力してください">
+                        <input type="date" id="newDate">
+                    </div>
+                    <input type="submit" id="newSubmit" value="Add">
+                </form>
+            </div>
+        </header>
+
+        <main class="layout">
+            <div id="taskListHead">
+                <h2>Task List</h2>
+                <button id="delAll">Delete<br>All</button>
+            </div>
+
+            <div id="taskList"></div>
+        </main>
+
+        <script src="./assets/js/main.js" type="text/javascript"></script>
+    </body>
+</html>
