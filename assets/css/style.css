@@ -56,8 +56,19 @@ appearance: none;
     width: 30em;
 }
 
+@media screen and (max-width: 960px){
+    #newDate{
+        margin-left: 11.5em;
+        background-color: var(--main);
+        border-radius: 10%;
+        cursor: pointer;
+        
+    }
+}
+
 #newDate{
-    padding-left: 12em;
+    margin-left: 11.5em;
+    
 }
 /*日付選択のカレンダーボタン*/
 #newDate::-webkit-calendar-picker-indicator {
