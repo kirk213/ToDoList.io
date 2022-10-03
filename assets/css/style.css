@@ -56,15 +56,6 @@ appearance: none;
     width: 30em;
 }
 
-@media screen and (max-width: 960px){
-    #newDate{
-        margin-left: 11.5em;
-        background-color: var(--main);
-        border-radius: 10%;
-        cursor: pointer;
-        
-    }
-}
 
 #newDate{
     margin-left: 11.5em;
@@ -77,6 +68,15 @@ appearance: none;
     cursor: pointer;
 }
 
+@media screen and (max-width: 960px){
+    #newDate{
+        margin-left: 11.5em;
+        background-color: var(--main);
+        border-radius: 10%;
+        cursor: pointer;
+        
+    }
+}
 
 #newSubmit{
     padding: 1rem 1.5rem;
