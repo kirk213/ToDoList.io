@@ -71,11 +71,8 @@ appearance: none;
 @media screen and (max-width: 1024px){
     #newDate{
         margin-left: 11.5em;
-        color: var(--gray);
-        background-color: var(--main);
-        border-radius: 10%;
+        color: var(--main);
         cursor: pointer;
-        
     }
 }
 

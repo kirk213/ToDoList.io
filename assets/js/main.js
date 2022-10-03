@@ -1,5 +1,7 @@
 //フォームの取得
 let form = document.getElementById('newToDo');
+//日付を今日に設定
+today();
 //フォームの値、ローカルストレージのjsonを代入
 let jsonArray=[];
 
@@ -34,6 +36,14 @@ form.addEventListener("submit",function(e){
     addTaskList(jsonArray);
 });
 
+function today () {
+    var today = new Date();
+    today.setDate(today.getDate());
+    var yyyy = today.getFullYear();
+    var mm = ("0"+(today.getMonth()+1)).slice(-2);
+    var dd = ("0"+today.getDate()).slice(-2);
+    document.getElementById("newDate").value=yyyy+'-'+mm+'-'+dd;
+}
 
 /*deleteAllボタンを押したときの動作
 delallを受け取って、クリックをイベントトリガーに設定
