@@ -4,6 +4,7 @@
     --blue:rgb(57, 197, 207);
     --red:rgb(201, 59, 59);
     --green:rgb(85, 194, 75);
+    --purple:rgb(159, 66, 212);
     --main:rgba(255, 255, 255, 0.87);
 
 }
@@ -12,6 +13,8 @@
     color: var(--main);
     background: var(--bg);
 }
+
+/*ヘッダーレイアウト*/
 
 .layout{
     padding: 1rem 1rem;
@@ -32,19 +35,21 @@ header h1{
 }
 
 
-input,button{
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-}
 
+/*入力欄、日付、addボタン*/
 #textarea{
     flex: auto;
     background-color:var(--gray) ;
     padding: 1rem;
     margin-right: 5em;
     border-radius: 1rem;
+}
+
+input,button{
+appearance: none;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 #newInput{
@@ -54,6 +59,7 @@ input,button{
 #newDate{
     padding-left: 12em;
 }
+/*日付選択のカレンダーボタン*/
 #newDate::-webkit-calendar-picker-indicator {
     background-color: var(--main);
     border-radius: 15%;
@@ -72,6 +78,8 @@ input,button{
     transition: 0.2s all linear;
 }
 
+
+/*タスクリスト見出し、deleteAllボタン*/
 #taskListHead{
     display: flex;
     justify-content: space-between;
@@ -93,7 +101,7 @@ h2{
 }
 
 
-
+/*追加されるタスクのスタイル*/
 #taskList .taskRecord{
     margin: 1.2rem 0 1.2rem 0;
     display: flex;
@@ -111,10 +119,42 @@ h2{
     justify-content: space-between;
 }
 
-#taskList .taskRecord .actions{
-    color: var(--bg);
-    background-color: var(--gray);
+/*チェックボックス*/
+#taskList .taskRecord .content .labelDiv{
+    background-color:  var(--gray);
+    width: 18px;
+    margin: auto;
+    padding-right: 1rem;
 }
+
+#taskList .taskRecord .content label .checkbox{
+    display: none;
+}
+
+#taskList .taskRecord .content label{
+    cursor: pointer;
+    display:block;
+    margin: auto;
+	height: 10px;
+    width: 10px;
+	border: 2px solid var(--main);
+    border-radius: 15%;
+    transition: 0.2s all linear;
+}
+
+#taskList .taskRecord .content .labelDiv .label_checked{
+    background-color: var(--gray);
+    transform: rotate(45deg) translateY(-2px) translateX(-2px);
+    height: 15px;
+    border: 2px solid var(--green);
+    border-top: transparent;
+    border-left: transparent;
+    border-radius: 10%;
+    transition: 0.2s all linear;
+}
+
+
+/*テキスト欄*/
 
 #taskList .taskRecord .content .text{
     color: var(--main);
@@ -124,11 +164,16 @@ h2{
 }
 
 #taskList .taskRecord .content .date{
+    margin-right: 0.5em;
     width: 10em;
     text-align: center;
 }
 
-
+/*edit、deleteボタン*/
+#taskList .taskRecord .actions{
+    color: var(--bg);
+    background-color: var(--gray);
+}
 #taskList .taskRecord .actions .edit{
     color: var(--bg);
     cursor: pointer;
@@ -148,8 +193,6 @@ h2{
     transition: 0.2s all linear;
 }
 
-
-
 #taskList .taskRecord .actions .delete{
     color: var(--bg);
     cursor: pointer;
@@ -159,4 +202,3 @@ h2{
     color: var(--red);
     transition: 0.2s all linear;
 }
-

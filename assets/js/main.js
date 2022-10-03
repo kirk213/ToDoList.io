@@ -7,8 +7,7 @@ let jsonArray=[];
 
 //ページを開いた時にローカルストレージにデータがある場合に取り出してタスクリストに表示する
 if(localStorage.getItem('formData') !== null){
-    jsonArray = JSON.parse(localStorage.getItem('formData'));
-    addTaskList(jsonArray);
+    addTaskList();
 }
 
 
@@ -27,7 +26,7 @@ form.addEventListener("submit",function(e){
         return;
     }
     //配列に追加
-    jsonArray.push({"text":text,"date":date}); 
+    jsonArray.push({"text":text,"date":date,"check":false}); 
     console.log(jsonArray);
     //ローカルストレージに保存
     localStorage.setItem('formData',JSON.stringify(jsonArray));
@@ -54,6 +53,8 @@ document.getElementById("delAll").addEventListener("click",function(){
 
 //関数系
 function addTaskList(){
+    //ローカルから受け取り
+    jsonArray = JSON.parse(localStorage.getItem('formData'));
     //タスクリストのdivを取得
     let taskList = document.getElementById("taskList");
     //htmlに追加されている要素を一度削除
@@ -64,9 +65,26 @@ function addTaskList(){
         let taskRecord = document.createElement("div");
         taskRecord.classList.add("taskRecord");
         
-        //テキストと日付
+        //チェックボックスとテキストと日付
         let content = document.createElement("div");
         content.classList.add("content");
+        let labelDiv = document.createElement("div");
+        labelDiv.classList.add("labelDiv");
+        let label = document.createElement("label");
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("type","checkbox");
+        checkbox.setAttribute("class","checkbox");
+        //チェック状況をローカルから受け取って代入後、状況に応じてクラスを追加または削除
+        checkbox.checked= array.check;
+        if(array.check){
+            label.classList.add("label_checked");
+        }else{
+            label.classList.remove("label_checked");
+        }
+
+        label.appendChild(checkbox);
+        labelDiv.appendChild(label);
+        content.appendChild(labelDiv);
         
         let text = document.createElement("input");
         text.setAttribute("type","text");
@@ -138,7 +156,19 @@ function addTaskList(){
             });
             localStorage.setItem('formData',JSON.stringify(jsonArray));
             addTaskList();
-        });   
+        }); 
+        
+        //checkボタンを押したときの動作
+        checkbox.addEventListener('change',function(){
+            //チェック状況を代入
+            array.check = this.checked;       
+            localStorage.setItem('formData',JSON.stringify(jsonArray));
+            if(array.check){
+                label.classList.add("label_checked");
+            }else{
+                label.classList.remove("label_checked");
+            }
+        })
 
         
     });
