@@ -1,14 +1,14 @@
 //フォームの取得
-let form = document.getElementById('newToDo');
+let form = document.getElementById("newToDo");
 //日付を今日に設定
-today();
+document.getElementById("newDate").min = today();
 //フォームの値、ローカルストレージのjsonを代入
 let jsonArray=[];
 
 
 
 //ページを開いた時にローカルストレージにデータがある場合に取り出してタスクリストに表示する
-if(localStorage.getItem('formData') !== null){
+if(localStorage.getItem("formData") !== null){
     addTaskList();
 }
 
@@ -16,8 +16,8 @@ if(localStorage.getItem('formData') !== null){
 //submitをトリガーとしてフォームデータを取得するイベント
 form.addEventListener("submit",function(e){
     e.preventDefault();
-    let text = document.getElementById('newInput').value;
-    let date = document.getElementById('newDate').value;
+    let text = document.getElementById("newInput").value;
+    let date = document.getElementById("newDate").value;
     //テキストが入力されていない場合のアラート
     if(text === ""){
         alert("タスクを入力してから追加してください。");
@@ -36,13 +36,14 @@ form.addEventListener("submit",function(e){
     addTaskList(jsonArray);
 });
 
+//今日の日付をリターンする関数
 function today () {
     var today = new Date();
     today.setDate(today.getDate());
     var yyyy = today.getFullYear();
     var mm = ("0"+(today.getMonth()+1)).slice(-2);
     var dd = ("0"+today.getDate()).slice(-2);
-    document.getElementById("newDate").value=yyyy+'-'+mm+'-'+dd;
+    return yyyy+'-'+mm+'-'+dd;
 }
 
 /*deleteAllボタンを押したときの動作
@@ -53,7 +54,7 @@ document.getElementById("delAll").addEventListener("click",function(){
     if(result){
         jsonArray.length = 0;
         //ローカルストレージに保存
-        localStorage.setItem('formData',JSON.stringify(jsonArray));
+        localStorage.setItem("formData",JSON.stringify(jsonArray));
         //addTaskListを呼び出してタスクリストの再表示
         addTaskList(jsonArray);
     };
@@ -64,7 +65,7 @@ document.getElementById("delAll").addEventListener("click",function(){
 //関数系
 function addTaskList(){
     //ローカルから受け取り
-    jsonArray = JSON.parse(localStorage.getItem('formData'));
+    jsonArray = JSON.parse(localStorage.getItem("formData"));
     //タスクリストのdivを取得
     let taskList = document.getElementById("taskList");
     //htmlに追加されている要素を一度削除
@@ -109,7 +110,9 @@ function addTaskList(){
         date.setAttribute("class","date");
         date.setAttribute("value",array.date);
         date.setAttribute("readOnly","true");
-    
+        
+        date.min = today();
+
         content.appendChild(date);
         
         //編集と削除
