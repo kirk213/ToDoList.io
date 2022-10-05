@@ -57,6 +57,10 @@ appearance: none;
     width: 30em;
 }
 
+#newDate{
+    
+}
+
 #dateText{
     font-size:small;
     background-color: var(--gray);
@@ -75,6 +79,8 @@ appearance: none;
     #newDate{
         color: var(--main);
         cursor: pointer;
+        border: solid 1px ;
+        border-color: var(--darkmain);
     }
 }
 
