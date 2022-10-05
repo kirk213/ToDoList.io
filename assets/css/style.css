@@ -1,12 +1,13 @@
 :root{
     --bg:rgb(36, 36, 36);
+    --black:rgb(10, 10, 10);
     --gray:rgb(66, 66, 66);
     --blue:rgb(57, 197, 207);
     --red:rgb(201, 59, 59);
     --green:rgb(85, 194, 75);
     --purple:rgb(159, 66, 212);
     --main:rgba(255, 255, 255, 0.87);
-
+    --darkmain:rgba(255, 255, 255, 0.74);
 }
 
 *{  
@@ -56,11 +57,13 @@ appearance: none;
     width: 30em;
 }
 
-
-#newDate{
-    margin-left: 11.5em;
-    
+#dateText{
+    font-size:small;
+    background-color: var(--gray);
+    color: var(--darkmain);
+    margin-left: 0.5em;
 }
+
 /*日付選択のカレンダーボタン*/
 #newDate::-webkit-calendar-picker-indicator {
     background-color: var(--main);
@@ -70,7 +73,6 @@ appearance: none;
 
 @media screen and (max-width: 1024px){
     #newDate{
-        margin-left: 11.5em;
         color: var(--main);
         cursor: pointer;
     }
@@ -180,20 +182,20 @@ h2{
 
 /*edit、deleteボタン*/
 #taskList .taskRecord .actions{
-    color: var(--bg);
+    color: var(--black);
     background-color: var(--gray);
 }
 #taskList .taskRecord .actions .edit{
-    color: var(--bg);
+    color: var(--black);
     cursor: pointer;
-    margin-right:2.25rem;
+    margin-right:2.5rem;
 }
 #taskList .taskRecord .actions .edit:hover{
     color: var(--blue);
     transition: 0.2s all linear;
 }
 #taskList .taskRecord .actions .save{
-    color: var(--bg);
+    color: var(--black);
     cursor: pointer;
     margin-right:2.25rem;
 }
@@ -203,7 +205,7 @@ h2{
 }
 
 #taskList .taskRecord .actions .delete{
-    color: var(--bg);
+    color: var(--black);
     cursor: pointer;
     padding:0 0;
 }
