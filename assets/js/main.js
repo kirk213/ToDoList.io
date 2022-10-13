@@ -81,6 +81,7 @@ function addTaskList(){
         let labelDiv = document.createElement("div");
         labelDiv.classList.add("labelDiv");
         let label = document.createElement("label");
+        label.classList.add("checklabel");
         let checkbox = document.createElement("input");
         checkbox.setAttribute("type","checkbox");
         checkbox.setAttribute("class","checkbox");
@@ -106,8 +107,13 @@ function addTaskList(){
         text.setAttribute("class","text");
         text.setAttribute("value",array.text);
         text.setAttribute("readOnly","true");
+
+        let placeholder = document.createElement("label");
+        placeholder.classList.add("placeholder");
+        placeholder.innerHTML = "日時をクリックで変更：";
         
         content.appendChild(text);
+        content.appendChild(placeholder);
         
         let date = document.createElement("input");
         date.setAttribute("type","text");
@@ -169,6 +175,7 @@ function addTaskList(){
                     step:5
                 });
             });
+            placeholder.style.color="rgba(255, 255, 255, 0.87)"
             text.focus();
         });
     

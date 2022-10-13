@@ -141,7 +141,6 @@ h2{
     color: var(--bg);
     width: 35em;
     display: flex;
-    justify-content: space-between;
 }
 
 /*チェックボックス*/
@@ -158,11 +157,11 @@ h2{
     margin: auto;
 }
 
-#taskList .taskRecord .content label .checkbox{
+#taskList .taskRecord .content .checklabel .checkbox{
     display: none;
 }
 
-#taskList .taskRecord .content label{
+#taskList .taskRecord .content .checklabel{
     cursor: pointer;
     display:block;
     margin: auto;
@@ -188,10 +187,15 @@ h2{
 
 #taskList .taskRecord .content .text{
     color: var(--main);
-    display: block;
-    font-size: 1.125rem;
-    width: 100%;
+    font-size: 1.1rem;
+    width: 22.5rem;
     padding-top: 0.25rem;
+}
+
+#taskList .taskRecord .content .placeholder{
+    font-size: small;
+    color: var(--gray);
+    padding-top: 2px;
 }
 
 
@@ -203,11 +207,6 @@ h2{
     color: var(--black);
 }
 
-#taskList .taskRecord .actions .date::-webkit-calendar-picker-indicator{
-    background-color: var(--main);
-    border-radius: 15%;
-    cursor: pointer;
-}
 #taskList .taskRecord .actions button{
     padding: 0 0;
     cursor: pointer;
