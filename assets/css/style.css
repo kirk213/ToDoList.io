@@ -43,7 +43,6 @@ header h1{
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    padding-right: 0.75rem;
     margin-right: 1em;
     border-radius: 1rem;
     background-color: var(--gray);
@@ -65,7 +64,6 @@ input,button{
 }
 
 #datearea{
-    position: relative;
 }
 
 #dateText{
