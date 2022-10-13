@@ -16,27 +16,6 @@
 }
 
 
-@media screen and (max-width: 680px){
-    #taskList .taskRecord .content .placeholder{
-        font-size: small;
-        color: var(--gray);
-        padding-top: 1rem;
-    }
-
-    #taskList .taskRecord .content .text{
-        color: var(--main);
-        font-size: 1.1rem;
-        width: 22.5rem;
-        padding-bottom: 1rem;
-    }
-    
-    #newDate{
-        color: var(--main);
-        width: 10.25rem;
-        padding-right: 4.2rem;
-        padding-top: 1rem;
-    }
-}
 
 /*ヘッダーレイアウト*/
 .layout{
@@ -121,7 +100,7 @@ h2{
     justify-content: space-between;
     gap: 1rem;
     cursor: pointer;
-
+    
 }
 #sortTask{
     width: 71px;
@@ -256,5 +235,26 @@ h2{
 #taskList .taskRecord .actions .delete:hover{
     color: var(--red);
     transition: 0.2s all linear;
+}
+@media screen and (max-width: 680px){
+    #taskList .taskRecord .content .placeholder{
+        font-size: small;
+        color: var(--gray);
+        padding-top: 1rem;
+    }
+
+    #taskList .taskRecord .content .text{
+        color: var(--main);
+        font-size: 1.1rem;
+        width: 22.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    #newDate{
+        color: var(--main);
+        width: 10.25rem;
+        padding-right: 4.2rem;
+        padding-top: 1rem;
+    }
 }
 
