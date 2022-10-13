@@ -82,10 +82,9 @@ input,button{
 
 /*日付選択のカレンダーボタン*/
 #newDate::-webkit-calendar-picker-indicator {
-    opacity: 0;
+    opacity: 1;
     cursor: pointer;
     position: absolute;
-    width: 4rem;
 }
 
 #newDate::-webkit-datetime-edit-fields-wrapper{
@@ -93,7 +92,7 @@ input,button{
 }
 
 #newTime::-webkit-calendar-picker-indicator{
-    opacity:0.5;
+    opacity:1;
 }
 
 
