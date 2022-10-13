@@ -2,6 +2,7 @@
 let form = document.getElementById("newToDo");
 //日付を今日に設定
 document.getElementById("newDate").min = today();
+document.getElementById("newDate").value = today();
 //フォームの値、ローカルストレージのjsonを代入
 let jsonArray=[];
 

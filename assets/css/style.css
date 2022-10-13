@@ -75,17 +75,12 @@ input,button{
 }
 
 #datePlaceholder{
-    position: absolute;
     font-size: small;
     top: 2px;
 }
 
 /*日付選択のカレンダーボタン*/
-#newDate::-webkit-calendar-picker-indicator {
-    opacity: 1;
-    cursor: pointer;
-    position: absolute;
-}
+
 
 #newDate::-webkit-datetime-edit-fields-wrapper{
     
