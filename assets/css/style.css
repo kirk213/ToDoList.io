@@ -40,58 +40,53 @@ header h1{
 /*入力欄、日付、addボタン*/
 #textarea{
     flex: auto;
-    display: flex;
-    justify-content: space-between;
+    background-color:var(--gray) ;
     padding: 1rem;
-    margin-right: 1em;
+    margin-right: 5em;
     border-radius: 1rem;
-    background-color: var(--gray);
-}
-#newToDo #textarea *{
-    background-color: var(--gray);
 }
 
 input,button{
-    appearance: none;
+appearance: none;
     border: none;
     outline: none;
     background: none;
-    background-color: var(--gray);
 }
 
 #newInput{
     width: 30em;
 }
 
-#datearea{
+#newDate{
+    
 }
 
 #dateText{
     font-size:small;
+    background-color: var(--gray);
     color: var(--darkmain);
     margin-left: 0.5em;
 }
 
-#datePlaceholder{
-    font-size: small;
-    top: 2px;
-}
-
 /*日付選択のカレンダーボタン*/
-
-
-#newDate::-webkit-calendar-picker-indicator{
-    display: none;
+#newDate::-webkit-calendar-picker-indicator {
+    background-color: var(--main);
+    border-radius: 15%;
+    cursor: pointer;
 }
 
-#newTime::-webkit-calendar-picker-indicator{
-    opacity:1;
+@media screen and (max-width: 1024px){
+    #newDate{
+        color: var(--main);
+        cursor: pointer;
+        border: solid 1px ;
+        border-color: var(--darkmain);
+    }
 }
-
 
 #newSubmit{
-    width: 71px;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--gray);
     border-radius: 20%;
     cursor: pointer;
 }
@@ -111,38 +106,17 @@ input,button{
 h2{
     margin-top: 0.5em;
 }
-
-#taskListBtn{
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    cursor: pointer;
-
-}
-#sortTask{
-    width: 71px;
-    padding: 0.75rem 1rem;
-    border-radius: 20%;
-}
-#sortTask:hover{
-    background-color:var(--blue);
-    transition: 0.2s all linear;
-}
-
-
 #delAll{
-    width: 71px;
-    padding:1rem;
+    padding: 0 1rem;
+    background: var(--gray);
     border-radius: 20%;
+    cursor: pointer;
 }
 #delAll:hover{
     background-color:var(--red);
     transition: 0.2s all linear;
 }
 
-#taskList{
-    padding: 1rem 0;
-}
 
 /*追加されるタスクのスタイル*/
 #taskList .taskRecord{
@@ -153,29 +127,21 @@ h2{
     padding: 1rem;
     border-radius: 1rem;
 }
-#taskList .taskRecord *{
-    background-color: var(--gray);
-}
 
 #taskList .taskRecord .content{
     color: var(--bg);
-    width: 35em;
+    background-color: var(--gray);
+    width: 42.5em;
     display: flex;
     justify-content: space-between;
 }
 
 /*チェックボックス*/
 #taskList .taskRecord .content .labelDiv{
+    background-color:  var(--gray);
     width: 18px;
     margin: auto;
     padding-right: 1rem;
-}
-
-
-#taskList .taskRecord .content .labelDiv img{
-    display: none;
-    height: 1.25rem;
-    margin: auto;
 }
 
 #taskList .taskRecord .content label .checkbox{
@@ -194,6 +160,7 @@ h2{
 }
 
 #taskList .taskRecord .content .labelDiv .label_checked{
+    background-color: var(--gray);
     transform: rotate(45deg) translateY(-2px) translateX(-2px);
     height: 15px;
     border: 2px solid var(--green);
@@ -208,48 +175,46 @@ h2{
 
 #taskList .taskRecord .content .text{
     color: var(--main);
-    display: block;
     font-size: 1.125rem;
     width: 100%;
-    padding-top: 0.25rem;
+    display: block;
 }
 
+#taskList .taskRecord .content .date{
+    margin-right: 0.5em;
+    width: 10em;
+    text-align: center;
+}
 
-/*日付、edit、deleteボタン*/
+/*edit、deleteボタン*/
 #taskList .taskRecord .actions{
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
     color: var(--black);
+    background-color: var(--gray);
 }
-
-#taskList .taskRecord .actions .date::-webkit-calendar-picker-indicator{
-    background-color: var(--main);
-    border-radius: 15%;
-    cursor: pointer;
-}
-#taskList .taskRecord .actions button{
-    padding: 0 0;
-    cursor: pointer;
-    color: var(--black);
-}
-
 #taskList .taskRecord .actions .edit{
-    padding-right: 2rem;
-}
-#taskList .taskRecord .actions .save{
-    padding-right: 2rem;
+    color: var(--black);
+    cursor: pointer;
+    margin-right:2.5rem;
 }
 #taskList .taskRecord .actions .edit:hover{
     color: var(--blue);
     transition: 0.2s all linear;
 }
-
+#taskList .taskRecord .actions .save{
+    color: var(--black);
+    cursor: pointer;
+    margin-right:2.25rem;
+}
 #taskList .taskRecord .actions .save:hover{
     color: var(--green);
     transition: 0.2s all linear;
 }
 
+#taskList .taskRecord .actions .delete{
+    color: var(--black);
+    cursor: pointer;
+    padding:0 0;
+}
 #taskList .taskRecord .actions .delete:hover{
     color: var(--red);
     transition: 0.2s all linear;

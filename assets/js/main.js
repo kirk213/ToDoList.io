@@ -2,15 +2,16 @@
 let form = document.getElementById("newToDo");
 //日付を今日に設定
 document.getElementById("newDate").min = today();
-document.getElementById("newDate").value = today();
 //フォームの値、ローカルストレージのjsonを代入
 let jsonArray=[];
+
 
 
 //ページを開いた時にローカルストレージにデータがある場合に取り出してタスクリストに表示する
 if(localStorage.getItem("formData") !== null){
     addTaskList();
 }
+
 
 //submitをトリガーとしてフォームデータを取得するイベント
 form.addEventListener("submit",function(e){
@@ -92,13 +93,8 @@ function addTaskList(){
             label.classList.remove("label_checked");
         }
 
-        let arrow = document.createElement("img");
-        arrow.setAttribute("src","./assets/img/arrow.png");
-
-
         label.appendChild(checkbox);
         labelDiv.appendChild(label);
-        labelDiv.appendChild(arrow);
         content.appendChild(labelDiv);
         
         let text = document.createElement("input");
@@ -117,6 +113,7 @@ function addTaskList(){
         
         date.min = today();
 
+        content.appendChild(date);
         
         //編集と削除
         let actions = document.createElement("div");
@@ -128,7 +125,6 @@ function addTaskList(){
         del.classList.add("delete");
         del.innerHTML="Delete";
         
-        actions.appendChild(date);
         actions.appendChild(edit);
         actions.appendChild(del);
         
@@ -185,63 +181,8 @@ function addTaskList(){
             }else{
                 label.classList.remove("label_checked");
             }
-        })  
+        })
+
+        
     });
 };
-
-
-//jQueryでソートの有効無効を切り替え
-$(function(){
-    let judge = false;
-    $("#sortTask").click(function(){
-        if(judge){  
-            sortDisable();
-        }else{
-            sortEnable();
-        }
-    });
-    //ソート有効時
-    function sortEnable(){
-        console.log("enable");
-        let div = $(".labelDiv");
-        div.children('label').css('display','none');
-        div.children('img').css('display','block');
-        $("#taskList").sortable({
-            disabled:false,
-            handle:".labelDiv",
-            axis:"y",
-            revert:true,
-            opacity:"0.8"
-        });
-        judge = true;
-    };
-    //ソート無効時
-    function sortDisable(){
-        console.log("disable");
-        let div = $(".labelDiv");
-        div.children("label").css('display','block');
-        div.children("img").css('display','none');
-        $("#taskList").sortable({
-            disabled:true
-        });
-        judge = false;
-        
-    //要素を取得してlocalstrageに追加してからタスクリストを再表示
-        //配列をクリア
-        jsonArray.length = 0;
-
-        //要素を取得して配列に追加
-        $(".taskRecord").each(function(){
-            let elem = $(this)[0];
-            let text = $(elem).find(".text").val()
-            let date = $(elem).find(".date").val()
-            let check = $(elem).find(".checkbox").prop("checked");
-            
-            jsonArray.push({"text":text,"date":date,"check":check}); 
-            
-        });
-        //追加が終わったら配列をローカルストレージに保存
-        localStorage.setItem("formData",JSON.stringify(jsonArray));
-        addTaskList(jsonArray);
-    };
-});
