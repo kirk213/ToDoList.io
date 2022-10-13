@@ -60,13 +60,15 @@ input,button{
 }
 
 #newInput{
+    font-size: 1.1rem;
     width: 30em;
 }
 
 
 #newDate{
-    color: white;
+    color: var(--main);
     width: 10.25rem;
+    padding-right: 4.2rem;
 }
 
 #newSubmit{
