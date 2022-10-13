@@ -38,11 +38,12 @@ header h1{
 
 
 /*入力欄、日付、addボタン*/
-#newToDo #textarea{
+#textarea{
     flex: auto;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    padding-right: 0.75rem;
     margin-right: 1em;
     border-radius: 1rem;
     background-color: var(--gray);
@@ -59,36 +60,42 @@ input,button{
     background-color: var(--gray);
 }
 
-#newToDo #textarea #newInput{
+#newInput{
     width: 30em;
 }
 
-#newToDo #textarea #date{
-    padding-right: 0.75rem;
+#datearea{
+    position: relative;
 }
 
-
-#newToDo #textarea #date #dateText{
+#dateText{
     font-size:small;
     color: var(--darkmain);
     margin-left: 0.5em;
 }
 
-/*日付選択のカレンダーボタン*/
-#newDate::-webkit-calendar-picker-indicator {
-    background-color: var(--main);
-    border-radius: 15%;
-    cursor: pointer;
+#datePlaceholder{
+    position: absolute;
+    font-size: small;
+    top: 2px;
 }
 
-@media screen and (max-width: 700px){
-    #newDate{
-        color: var(--main);
-        cursor: pointer;
-        border: solid 1px ;
-        border-color: var(--darkmain);
-    }
+/*日付選択のカレンダーボタン*/
+#newDate::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    width: 4rem;
 }
+
+#newDate::-webkit-datetime-edit-fields-wrapper{
+    
+}
+
+#newTime::-webkit-calendar-picker-indicator{
+    opacity:0.5;
+}
+
 
 #newSubmit{
     width: 71px;

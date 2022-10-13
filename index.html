@@ -14,9 +14,11 @@
                 <form id="newToDo">
                     <div id="textarea">
                         <input type="text" id="newInput" placeholder="タスクを入力してください">
-                        <div id="date">
-                            <label id="dateText">日付を入力してください :</label>
-                            <input type="date" id="newDate">
+                        <div id="datearea">
+                            <label id="dateText">日時を入力してください :</label>
+                            <span id="datePlaceholder">yyyy/mm/dd</span>
+                            <input type="date" id="newDate"/>
+                            <input type="time" id="newTime"/>
                         </div>
                     </div>
                     <input type="submit" id="newSubmit" value="Add">
