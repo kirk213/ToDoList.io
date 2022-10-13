@@ -13,6 +13,7 @@ $(function() {
     });
 });
 
+//aaaa
 Push.create("Push.jsのデモ!", {
     body: "何かの通知処理", // 表示テキスト
     timeout: 4000, // 自動的に閉じる時間 * 4秒
