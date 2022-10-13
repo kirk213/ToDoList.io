@@ -80,8 +80,8 @@ input,button{
 /*日付選択のカレンダーボタン*/
 
 
-#newDate::-webkit-datetime-edit-fields-wrapper{
-    
+#newDate::-webkit-calendar-picker-indicator{
+    display: none;
 }
 
 #newTime::-webkit-calendar-picker-indicator{
