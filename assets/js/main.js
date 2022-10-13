@@ -1,9 +1,17 @@
 //フォームの取得
 let form = document.getElementById("newToDo");
-//日付を今日に設定
-document.getElementById("newDate").min = today();
 //フォームの値、ローカルストレージのjsonを代入
 let jsonArray=[];
+
+//データピッカーを呼び出す
+$(function() {
+    $.datetimepicker.setLocale('ja');
+    $('#newDate').datetimepicker({
+        theme:"dark",
+        minDate:new Date(),
+        step:5
+    });
+});
 
 
 
@@ -12,12 +20,12 @@ if(localStorage.getItem("formData") !== null){
     addTaskList();
 }
 
-
 //submitをトリガーとしてフォームデータを取得するイベント
 form.addEventListener("submit",function(e){
     e.preventDefault();
     let text = document.getElementById("newInput").value;
     let date = document.getElementById("newDate").value;
+    console.log(date);
     //テキストが入力されていない場合のアラート
     if(text === ""){
         alert("タスクを入力してから追加してください。");
@@ -36,15 +44,6 @@ form.addEventListener("submit",function(e){
     addTaskList(jsonArray);
 });
 
-//今日の日付をリターンする関数
-function today () {
-    var today = new Date();
-    today.setDate(today.getDate());
-    var yyyy = today.getFullYear();
-    var mm = ("0"+(today.getMonth()+1)).slice(-2);
-    var dd = ("0"+today.getDate()).slice(-2);
-    return yyyy+'-'+mm+'-'+dd;
-}
 
 /*deleteAllボタンを押したときの動作
 delallを受け取って、クリックをイベントトリガーに設定
@@ -93,8 +92,13 @@ function addTaskList(){
             label.classList.remove("label_checked");
         }
 
+        let arrow = document.createElement("img");
+        arrow.setAttribute("src","./assets/img/arrow.png");
+
+
         label.appendChild(checkbox);
         labelDiv.appendChild(label);
+        labelDiv.appendChild(arrow);
         content.appendChild(labelDiv);
         
         let text = document.createElement("input");
@@ -106,14 +110,12 @@ function addTaskList(){
         content.appendChild(text);
         
         let date = document.createElement("input");
-        date.setAttribute("type","date");
+        date.setAttribute("type","text");
         date.setAttribute("class","date");
         date.setAttribute("value",array.date);
         date.setAttribute("readOnly","true");
         
-        date.min = today();
 
-        content.appendChild(date);
         
         //編集と削除
         let actions = document.createElement("div");
@@ -125,6 +127,7 @@ function addTaskList(){
         del.classList.add("delete");
         del.innerHTML="Delete";
         
+        actions.appendChild(date);
         actions.appendChild(edit);
         actions.appendChild(del);
         
@@ -158,6 +161,14 @@ function addTaskList(){
             //readonlyを外して、テキスト欄にォーカスをあわせる
             text.removeAttribute("readOnly");
             date.removeAttribute("readOnly");
+            $(function() {
+                $.datetimepicker.setLocale('ja');
+                $(date).datetimepicker({
+                    theme:"dark",
+                    minDate:new Date(),
+                    step:5
+                });
+            });
             text.focus();
         });
     
@@ -181,8 +192,63 @@ function addTaskList(){
             }else{
                 label.classList.remove("label_checked");
             }
-        })
-
-        
+        })  
     });
 };
+
+
+//jQueryでソートの有効無効を切り替え
+$(function(){
+    let judge = false;
+    $("#sortTask").click(function(){
+        if(judge){  
+            sortDisable();
+        }else{
+            sortEnable();
+        }
+    });
+    //ソート有効時
+    function sortEnable(){
+        console.log("enable");
+        let div = $(".labelDiv");
+        div.children('label').css('display','none');
+        div.children('img').css('display','block');
+        $("#taskList").sortable({
+            disabled:false,
+            handle:".labelDiv",
+            axis:"y",
+            revert:true,
+            opacity:"0.8"
+        });
+        judge = true;
+    };
+    //ソート無効時
+    function sortDisable(){
+        console.log("disable");
+        let div = $(".labelDiv");
+        div.children("label").css('display','block');
+        div.children("img").css('display','none');
+        $("#taskList").sortable({
+            disabled:true
+        });
+        judge = false;
+        
+    //要素を取得してlocalstrageに追加してからタスクリストを再表示
+        //配列をクリア
+        jsonArray.length = 0;
+
+        //要素を取得して配列に追加
+        $(".taskRecord").each(function(){
+            let elem = $(this)[0];
+            let text = $(elem).find(".text").val()
+            let date = $(elem).find(".date").val()
+            let check = $(elem).find(".checkbox").prop("checked");
+            
+            jsonArray.push({"text":text,"date":date,"check":check}); 
+            
+        });
+        //追加が終わったら配列をローカルストレージに保存
+        localStorage.setItem("formData",JSON.stringify(jsonArray));
+        addTaskList(jsonArray);
+    };
+});

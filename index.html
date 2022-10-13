@@ -6,6 +6,8 @@
         <meta name=”viewport” content=”width=device-width,initial-scale=1.0″>
         <title>ToDo List</title>
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <body>
         <header class="layout">
@@ -14,24 +16,32 @@
                 <form id="newToDo">
                     <div id="textarea">
                         <input type="text" id="newInput" placeholder="タスクを入力してください">
-                        <label id="dateText">日付を入力してください :</label>
-                        <input type="date" id="newDate">
+                        <div id="datearea">
+                            <input type=text id="newDate" placeholder="クリックして日時を選択">
+                        </div>
                     </div>
                     <input type="submit" id="newSubmit" value="Add">
                 </form>
             </div>
         </header>
-
+        
         <main class="layout">
             <div id="taskListHead">
                 <h2>Task List</h2>
-                <button id="delAll">Delete<br>All</button>
+                <div id="taskListBtn">
+                    <button id="sortTask">Sort<br>Task</button>
+                    <button id="delAll">Delete<br>All</button>
+                </div>
             </div>
-
+            
             <div id="taskList">
             </div>
         </main>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="./assets/js/main.js" type="text/javascript"></script>
     </body>
-</html>
+    </html>
