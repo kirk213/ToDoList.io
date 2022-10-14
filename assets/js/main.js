@@ -117,9 +117,11 @@ function addTaskList(){
         let dateDiv = document.createElement("div");
         dateDiv.classList.add("dateDiv");
 
-        let placeholder = document.createElement("label");
+        let placeholder = document.createElement("input");
+        placeholder.setAttribute("type","text");
         placeholder.classList.add("placeholder");
-        placeholder.innerHTML = "日時をクリックで変更 :";
+        placeholder.setAttribute("value","日時をクリックで変更 :")
+        placeholder.setAttribute("readOnly","true");
         
         let date = document.createElement("input");
         date.setAttribute("type","text");
