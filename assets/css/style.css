@@ -61,7 +61,6 @@ input,button{
 }
 
 #newInput{
-    font-size: 1.1rem;
     width: 30em;
 }
 
@@ -197,8 +196,8 @@ h2{
 
 #taskList .taskRecord .content .placeholder{
     font-size: small;
-    color: var(--blue);
-    padding-top: 2rem;
+    color: var(--gray);
+    padding-top: 0.125rem;
 }
 
 
