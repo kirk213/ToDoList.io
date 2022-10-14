@@ -236,7 +236,7 @@ h2{
     color: var(--red);
     transition: 0.2s all linear;
 }
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 680px){
     #taskList .taskRecord .content .placeholder{
         font-size: small;
         color: var(--gray);
