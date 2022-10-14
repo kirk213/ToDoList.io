@@ -13,8 +13,6 @@ $(function() {
     });
 });
 
-Notification.requestPermission();
-
 
 //ページを開いた時にローカルストレージにデータがある場合に取り出してタスクリストに表示する
 if(localStorage.getItem("formData") !== null){
