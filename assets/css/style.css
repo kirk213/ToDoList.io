@@ -11,6 +11,7 @@
 }
 
 *{  
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
     color: var(--main);
     background: var(--bg);
 }
@@ -102,6 +103,9 @@ h2{
     
 }
 #sortTask{
+    display:flex;
+    align-items: center;
+    justify-content: center;
     width: 71px;
     padding: 0.75rem 1rem;
     border-radius: 20%;
@@ -113,6 +117,9 @@ h2{
 
 
 #delAll{
+    display:flex;
+    align-items: center;
+    justify-content: center;
     width: 71px;
     padding:1rem;
     border-radius: 20%;
@@ -147,8 +154,9 @@ h2{
 
 /*チェックボックス*/
 #taskList .taskRecord .content .labelDiv{
-    width: 18px;
-    margin: auto;
+    width: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
     padding-right: 1rem;
 }
 
@@ -191,25 +199,29 @@ h2{
     color: var(--main);
     font-size: 1.1rem;
     width: 22.5rem;
-    top: auto;
-}
-
-#taskList .taskRecord .content .placeholder{
-    font-size: small;
-    color: var(--gray);
-}
-
-@media screen and (max-width:1080px) { 
-    #taskList .taskRecord .content .placeholder{
-        font-size: small;
-        padding-top: 0.25rem;
-        color: var(--blue);
-    }
- 
+    padding: auto;
 }
 
 
 /*日付、edit、deleteボタン*/
+
+#taskList .taskRecord .actions .dateDiv{
+    display: flex;
+    padding-right: 2rem;
+}
+
+
+#taskList .taskRecord .actions .dateDiv .placeholder{
+    font-size: small;
+    color: var(--gray);
+    width: 9rem;
+    padding-top: 0.25rem;
+}
+
+#taskList .taskRecord .actions .dateDiv .date{
+    width: 8rem;
+}
+
 #taskList .taskRecord .actions{
     display: flex;
     justify-content: space-between;
@@ -224,10 +236,10 @@ h2{
 }
 
 #taskList .taskRecord .actions .edit{
-    padding-right: 2rem;
+    padding-right: 1.8rem;
 }
 #taskList .taskRecord .actions .save{
-    padding-right: 1.75rem;
+    padding-right: 1.5rem;
 }
 #taskList .taskRecord .actions .edit:hover{
     color: var(--blue);

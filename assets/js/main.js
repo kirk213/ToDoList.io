@@ -100,20 +100,26 @@ function addTaskList(){
         label.appendChild(checkbox);
         labelDiv.appendChild(label);
         labelDiv.appendChild(arrow);
-        content.appendChild(labelDiv);
         
         let text = document.createElement("input");
         text.setAttribute("type","text");
         text.setAttribute("class","text");
         text.setAttribute("value",array.text);
         text.setAttribute("readOnly","true");
+        
+        
+        content.appendChild(labelDiv);
+        content.appendChild(text);
+       
+
+        //コメントと日付
+
+        let dateDiv = document.createElement("div");
+        dateDiv.classList.add("dateDiv");
 
         let placeholder = document.createElement("label");
         placeholder.classList.add("placeholder");
-        placeholder.innerHTML = "日時をクリックで変更：";
-        
-        content.appendChild(text);
-        content.appendChild(placeholder);
+        placeholder.innerHTML = "日時をクリックで変更 :";
         
         let date = document.createElement("input");
         date.setAttribute("type","text");
@@ -121,7 +127,9 @@ function addTaskList(){
         date.setAttribute("value",array.date);
         date.setAttribute("readOnly","true");
         
-
+        dateDiv.appendChild(placeholder);
+        dateDiv.appendChild(date);
+        
         
         //編集と削除
         let actions = document.createElement("div");
@@ -133,7 +141,7 @@ function addTaskList(){
         del.classList.add("delete");
         del.innerHTML="Delete";
         
-        actions.appendChild(date);
+        actions.appendChild(dateDiv);
         actions.appendChild(edit);
         actions.appendChild(del);
         
@@ -148,6 +156,7 @@ function addTaskList(){
             //編集時にsaveを押したときにボタンをeditに戻す
             if(this.innerHTML==="Save"){
                 this.innerHTML="Edit";
+                dateDiv.style.paddingRight="2rem";
                 //readonlyを戻す
                 text.readOnly="true";
                 date.readOnly="true";
@@ -165,6 +174,7 @@ function addTaskList(){
             //クラス名をトグルしてstyleを変更
             this.classList.toggle("edit");
             this.classList.toggle("save");
+            dateDiv.style.paddingRight="1.9rem";
             //readonlyを外して、テキスト欄にォーカスをあわせる
             text.removeAttribute("readOnly");
             date.removeAttribute("readOnly");
@@ -177,7 +187,7 @@ function addTaskList(){
                     step:5
                 });
             });
-            date.focus();
+            text.focus();
         });
     
         
