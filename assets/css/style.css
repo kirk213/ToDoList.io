@@ -192,7 +192,6 @@ h2{
     color: var(--main);
     font-size: 1.1rem;
     width: 22.5rem;
-    padding-top: 0.2rem;
 }
 
 #taskList .taskRecord .content .placeholder{
