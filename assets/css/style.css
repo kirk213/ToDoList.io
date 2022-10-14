@@ -197,8 +197,10 @@ h2{
 #taskList .taskRecord .content .placeholder{
     font-size: small;
     padding-top: 0.25rem;
-    color: var(--blue);
+    color: var(--gray);
 }
+
+
 
 
 /*日付、edit、deleteボタン*/

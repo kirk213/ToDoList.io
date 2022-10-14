@@ -151,7 +151,7 @@ function addTaskList(){
                 //readonlyを戻す
                 text.readOnly="true";
                 date.readOnly="true";
-                //placeholder.style.color="rgb(66, 66, 66)"
+                placeholder.style.color="rgb(66, 66, 66)"
                 alert("変更が保存されました");
                 /*変更した値を取得してforeachで回してる今の配列内のオブジェクトの値と入れ替えて、
                 ローカルストレージに保存し直してaddTaskList関数で変更後のタスクを再表示*/
@@ -168,6 +168,7 @@ function addTaskList(){
             //readonlyを外して、テキスト欄にォーカスをあわせる
             text.removeAttribute("readOnly");
             date.removeAttribute("readOnly");
+            placeholder.style.color="rgba(255, 255, 255, 0.87)"
             $(function() {
                 $.datetimepicker.setLocale('ja');
                 $(date).datetimepicker({
@@ -176,7 +177,6 @@ function addTaskList(){
                     step:5
                 });
             });
-            //placeholder.style.color="rgba(255, 255, 255, 0.87)"
             date.focus();
         });
     
