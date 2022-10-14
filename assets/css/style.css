@@ -197,7 +197,7 @@ h2{
 
 #taskList .taskRecord .content .placeholder{
     font-size: small;
-    color: var(--red);
+    color: var(--blue);
     padding-top: 2rem;
 }
 
