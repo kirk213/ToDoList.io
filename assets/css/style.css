@@ -240,21 +240,21 @@ h2{
     #taskList .taskRecord .content .placeholder{
         font-size: small;
         color: var(--gray);
-        padding-top: 1rem;
+        padding-top: 4px;
     }
 
     #taskList .taskRecord .content .text{
         color: var(--main);
         font-size: 1.1rem;
         width: 22.5rem;
-        padding-bottom: 1rem;
+        padding-bottom: 2px;
     }
     
     #newDate{
         color: var(--main);
         width: 10.25rem;
         padding-right: 4.2rem;
-        padding-top: 1rem;
+        padding-top: 2px;
     }
 }
 
