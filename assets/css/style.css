@@ -192,13 +192,13 @@ h2{
     color: var(--main);
     font-size: 1.1rem;
     width: 22.5rem;
-    padding-top: 0.25rem;
+    padding-top: 0.2rem;
 }
 
 #taskList .taskRecord .content .placeholder{
     font-size: small;
     color: var(--gray);
-    padding-top: 2px;
+    padding-top: 0.15rem;
 }
 
 
@@ -235,26 +235,5 @@ h2{
 #taskList .taskRecord .actions .delete:hover{
     color: var(--red);
     transition: 0.2s all linear;
-}
-@media screen and (max-width: 1024px){
-    #taskList .taskRecord .content .placeholder{
-        font-size: small;
-        color: var(--gray);
-        padding-top: 6px;
-    }
-
-    #taskList .taskRecord .content .text{
-        color: var(--main);
-        font-size: 1.1rem;
-        width: 22.5rem;
-        padding-bottom: 4px;
-    }
-    
-    #newDate{
-        color: var(--main);
-        width: 10.25rem;
-        padding-right: 4.2rem;
-        padding-top: 4px;
-    }
 }
 
