@@ -12,29 +12,29 @@
 
 
 *{  
-    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳＰゴシック', 'MS PGothic', sans-serif;
     color: var(--main);
-    background: var(--bg);
+    background:var(--bg);
 }
 
-
+body{
+    margin: 0.2rem;
+}
 
 /*ヘッダーレイアウト*/
 .layout{
-    padding: 1rem 1rem;
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
+    padding-top: 0.5rem;
 }
 
 #newToDo{
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    width: 98vw;
 }
 
 
 header h1{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 1;
 }
 
@@ -42,16 +42,46 @@ header h1{
 
 /*入力欄、日付、addボタン*/
 #textarea{
-    flex: auto;
     display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    margin-right: 1em;
+    flex-flow: column;
+    justify-content:space-between;
+    padding: 0.25rem;
     border-radius: 1rem;
     background-color: var(--gray);
+    width: 78.5%;
+    height: 3rem;
 }
-#newToDo #textarea *{
+#textarea *{
     background-color: var(--gray);
+}
+
+
+
+
+#newInputDiv{
+    width: 95%;
+    padding-left: 0.5rem;
+    background-color: transparent;
+}
+
+#newInput{
+    width: 95%;
+    margin: auto;
+}
+
+#datearea{
+    margin: auto;
+    padding: auto;
+}
+
+#newDateDiv{
+    width: 15rem;
+    padding-left: 0.5rem;
+    background-color: transparent;
+}
+#newDate{
+    width: 64%;
+    color: var(--main);
 }
 
 input,button{
@@ -62,59 +92,50 @@ input,button{
     background-color: var(--gray);
 }
 
-#newInput{
-    width: 30em;
-}
-
-
-#newDateDiv{
-    color: var(--main);
-    width: 10.25rem;
-    padding-right: 4.2rem;
-}
-
 #newSubmit{
-    width: 71px;
-    padding: 1rem;
+    width: 15.5%;
+    padding: 0.25rem;
     border-radius: 20%;
+
     cursor: pointer;
 }
-#newSubmit:hover{
+#newSubmit:active{
     background-color: var(--green);
     transition: 0.2s all linear;
 }
 
 
+
+main{
+    margin-bottom: 3rem;
+}
+
 /*タスクリスト見出し、deleteAllボタン*/
 #taskListHead{
     display: flex;
     justify-content: space-between;
-    margin: auto;
     height: 3.5rem;
+    width: 98vw;
 }
 h2{
-    margin-top: 0.5em;
+    margin-top: 0.5rem; 
 }
 
 #taskListBtn{
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
     cursor: pointer;
+    width: 34%;
     
 }
 #sortTask{
     display:flex;
     align-items: center;
     justify-content: center;
-    width: 71px;
-    padding: 0.75rem 1rem;
+    width: 42.5%;
+    padding: 0.25rem;
     border-radius: 20%;
     cursor: pointer;
-}
-#sortTask:hover{
-    background-color:var(--blue);
-    transition: 0.2s all linear;
 }
 
 
@@ -122,53 +143,48 @@ h2{
     display:flex;
     align-items: center;
     justify-content: center;
-    width: 71px;
-    padding:1rem;
+    font-size: small;
+    width: 44.5%;
+    padding:0.25rem;
     border-radius: 20%;
-    cursor: pointer;
 }
-#delAll:hover{
+#delAll:active{
     background-color:var(--red);
     transition: 0.2s all linear;
 }
 
-#taskList{
-    padding: 1rem 0;
-    height: auto+8rem;
-}
 
 /*追加されるタスクのスタイル*/
+
 #taskList .taskRecord{
-    margin: 1.2rem 0 1.2rem 0;
-    display: flex;
-    justify-content: space-between;
+    width: 96vw;
+    margin: 1rem 0 1rem 0;
     background-color: var(--gray);
-    padding: 1rem;
+    padding: 0.25rem 0 0.25rem 0.5rem;
     border-radius: 1rem;
 }
 #taskList .taskRecord *{
-    background-color: var(--gray);
+    background-color: transparent;
 }
 
 #taskList .taskRecord .content{
     color: var(--bg);
-    width: 35em;
     display: flex;
 }
 
 /*チェックボックス*/
 #taskList .taskRecord .content .labelDiv{
-    width: 16px;
+    width: 1rem;
     margin-top: auto;
     margin-bottom: auto;
-    padding-right: 1rem;
+    padding-right: 0.6rem;
 }
 
 
 #taskList .taskRecord .content .labelDiv img{
     display: none;
     height: 1.25rem;
-    margin: auto;
+    margin-right: 0.22rem;
 }
 
 #taskList .taskRecord .content .checklabel .checkbox{
@@ -201,56 +217,57 @@ h2{
 
 #taskList .taskRecord .content .text{
     color: var(--main);
-    font-size: 1.1rem;
+    font-size: medium;
     width: 22.5rem;
 
 }
-
 
 /*日付、edit、deleteボタン*/
 
 #taskList .taskRecord .dateDiv{
     display: flex;
-    padding-right: 3.8rem;
+    padding-left: 1.5rem;
 }
 
 
 #taskList .taskRecord .dateDiv .placeholder{
-    font-size: small;
-    color: var(--gray);
-    width: 9rem;
+    display: none;
 }
 
 #taskList .taskRecord .dateDiv .placeholderEnable{
+    display: block;
     font-size: small;
     color: var(--main);
-    width: 9rem;
+    width: 8.75rem;
 }
 
 #taskList .taskRecord .dateDiv .date{
+    font-size: small;
     width: 8rem;
 }
 
 #taskList .taskRecord .actions{
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-    color: var(--black);
+    width: 96vw;
+    text-align: right;
 }
 
+
 #taskList .taskRecord .actions button{
-    padding: 0 0;
     cursor: pointer;
     color: var(--black);
+    padding: 0 0;
+    vertical-align: top;
 }
 
 #taskList .taskRecord .actions .edit{
-    padding-right: 1.8rem;
+    width: 15.5%;
+    padding-right: 7%;
 }
 #taskList .taskRecord .actions .save{
-    padding-right: 1.5rem;
+    width: 15.5%;
+    padding-right: 7%;
 }
-#taskList .taskRecord .actions .edit:hover{
+#taskList .taskRecord .actions .edit:active{
     color: var(--blue);
     transition: 0.2s all linear;
 }
@@ -259,9 +276,13 @@ h2{
     color: var(--green);
     transition: 0.2s all linear;
 }
+#taskList .taskRecord .actions .delete{
+    width: 16%;
+}
 
-#taskList .taskRecord .actions .delete:hover{
+#taskList .taskRecord .actions .delete:active{
     color: var(--red);
     transition: 0.2s all linear;
 }
+
 

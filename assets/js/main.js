@@ -21,17 +21,18 @@ if(localStorage.getItem("formData") !== null){
 
 //submitをトリガーとしてフォームデータを取得するイベント
 form.addEventListener("submit",function(e){
+
     e.preventDefault();
     let text = document.getElementById("newInput").value;
     let date = document.getElementById("newDate").value;
     console.log(date);
     //テキストが入力されていない場合のアラート
     if(text === ""){
-        alert("タスクを入力してから追加してください。");
+        window.setTimeout(function(){alert("タスクを入力してください");}, 200);
         return;
     }//日付が入力されていない場合のアラート
     if(date === ""){
-        alert("日付を入力してから追加してください。");
+        window.setTimeout(function(){alert("日付を入力してください。");}, 200);
         return;
     }
     //配列に追加
@@ -48,14 +49,16 @@ form.addEventListener("submit",function(e){
 delallを受け取って、クリックをイベントトリガーに設定
 発火後、confirmを許可するとjsonarrayをクリアする*/
 document.getElementById("delAll").addEventListener("click",function(){
-    let result = window.confirm("すべてのタスクを消しますか？");
-    if(result){
-        jsonArray.length = 0;
-        //ローカルストレージに保存
-        localStorage.setItem("formData",JSON.stringify(jsonArray));
-        //addTaskListを呼び出してタスクリストの再表示
-        addTaskList(jsonArray);
-    };
+    window.setTimeout(function(){
+        let result = window.confirm("すべてのタスクを消しますか？");
+        if(result){
+            jsonArray.length = 0;
+            //ローカルストレージに保存
+            localStorage.setItem("formData",JSON.stringify(jsonArray));
+            //addTaskListを呼び出してタスクリストの再表示
+            addTaskList(jsonArray);
+        };
+    },200);
 });
 
 
@@ -119,7 +122,7 @@ function addTaskList(){
         let placeholder = document.createElement("input");
         placeholder.setAttribute("type","text");
         placeholder.classList.add("placeholder");
-        placeholder.setAttribute("value","日時をクリックで変更 :")
+        placeholder.setAttribute("value","日付をクリックで変更 :")
         placeholder.setAttribute("readOnly","true");
         
         let date = document.createElement("input");
@@ -141,13 +144,14 @@ function addTaskList(){
         let del = document.createElement("button");
         del.classList.add("delete");
         del.innerHTML="Delete";
-        
-        actions.appendChild(dateDiv);
+
         actions.appendChild(edit);
         actions.appendChild(del);
-        
+    
+
         //contentとactionsをtaskRecordにまとめて、taskListに追加
         taskRecord.appendChild(content);
+        taskRecord.appendChild(dateDiv);
         taskRecord.appendChild(actions);
         taskList.appendChild(taskRecord);
         
@@ -161,7 +165,8 @@ function addTaskList(){
                 //readonlyを戻す
                 text.readOnly="true";
                 date.readOnly="true";
-                placeholder.style.color="rgb(66, 66, 66)"
+                placeholder.classList.add("placeholder");
+                placeholder.classList.remove("placeholderEnable");
                 alert("変更が保存されました");
                 /*変更した値を取得してforeachで回してる今の配列内のオブジェクトの値と入れ替えて、
                 ローカルストレージに保存し直してaddTaskList関数で変更後のタスクを再表示*/
@@ -175,11 +180,12 @@ function addTaskList(){
             //クラス名をトグルしてstyleを変更
             this.classList.toggle("edit");
             this.classList.toggle("save");
-            dateDiv.style.paddingRight="1.9rem";
+            dateDiv.style.paddingRight="3.7rem";
             //readonlyを外して、テキスト欄にォーカスをあわせる
             text.removeAttribute("readOnly");
             date.removeAttribute("readOnly");
-            placeholder.style.color="rgba(255, 255, 255, 0.87)"
+            placeholder.classList.add("placeholderEnable");
+            placeholder.classList.remove("placeholder");
             $(function() {
                 $.datetimepicker.setLocale('ja');
                 $(date).datetimepicker({
@@ -229,21 +235,29 @@ $(function(){
     //ソート有効時
     function sortEnable(){
         console.log("enable");
+        let sw = $("#sortTask");
+        sw.css('background-color','rgb(57, 197, 207)');
+        sw.css('transition','0.2s all linear');
         let div = $(".labelDiv");
         div.children('label').css('display','none');
         div.children('img').css('display','block');
         $("#taskList").sortable({
             disabled:false,
             handle:".labelDiv",
+            cursor:"move",
             axis:"y",
-            revert:true,
+            revert:"100",
             opacity:"0.8"
+
         });
         judge = true;
     };
     //ソート無効時
     function sortDisable(){
         console.log("disable");
+        let sw = $("#sortTask");
+        sw.css('background-color','rgb(66, 66, 66)');
+        sw.css('transition','0.2s all linear');
         let div = $(".labelDiv");
         div.children("label").css('display','block');
         div.children("img").css('display','none');
@@ -261,8 +275,7 @@ $(function(){
             let elem = $(this)[0];
             let text = $(elem).find(".text").val()
             let date = $(elem).find(".date").val()
-            let check = $(elem).find(".checkbox").prop("checked");
-            
+            let check = $(elem).find(".checkbox").prop("checked");        
             jsonArray.push({"text":text,"date":date,"check":check}); 
             
         });
