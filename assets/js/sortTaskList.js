@@ -1,4 +1,4 @@
-//エクスポート
+//インポート、エクスポート
 import { jsonArray } from "./main.js";
 export {sortEnable,sortDisable} ;
 
