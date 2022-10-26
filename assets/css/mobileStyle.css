@@ -170,6 +170,8 @@ h2{
 #taskList .taskRecord .content{
     color: var(--bg);
     display: flex;
+    padding-right: 0.5rem;
+    width: auto;
 }
 
 /*チェックボックス*/
@@ -215,35 +217,34 @@ h2{
 
 /*テキスト欄*/
 
-#taskList .taskRecord .content .text{
+#taskList .taskRecord .content .tableDiv .text{
     color: var(--main);
     font-size: medium;
-    width: 22.5rem;
+    width: 86vw;
 
 }
 
 /*日付、edit、deleteボタン*/
 
-#taskList .taskRecord .dateDiv{
+#taskList .taskRecord .content .tableDiv .dateDiv{
     display: flex;
-    padding-left: 1.5rem;
 }
 
 
-#taskList .taskRecord .dateDiv .placeholder{
+#taskList .taskRecord .content .tableDiv .dateDiv .placeholder{
     display: none;
 }
 
-#taskList .taskRecord .dateDiv .placeholderEnable{
+#taskList .taskRecord .content .tableDiv .dateDiv .placeholderEnable{
     display: block;
     font-size: small;
     color: var(--main);
     width: 8.75rem;
 }
 
-#taskList .taskRecord .dateDiv .date{
+#taskList .taskRecord .content .tableDiv .dateDiv .date{
     font-size: small;
-    width: 8rem;
+    width: 7.5rem;
 }
 
 #taskList .taskRecord .actions{

@@ -22,8 +22,8 @@
 /*ヘッダーレイアウト*/
 .layout{
     padding: 1rem 1rem;
-    max-width: 900px;
-    width: 100%;
+    max-width: 1500px;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -43,9 +43,7 @@ header h1{
 /*入力欄、日付、addボタン*/
 #textarea{
     flex: auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     margin-right: 1em;
     border-radius: 1rem;
     background-color: var(--gray);
@@ -63,14 +61,15 @@ input,button{
 }
 
 #newInput{
-    width: 30em;
+    font-size: medium;
+    width: 100%;
 }
 
 
 #newDateDiv{
     color: var(--main);
     width: 10.25rem;
-    padding-right: 4.2rem;
+    padding-right: 5vw;
 }
 
 #newSubmit{
@@ -143,7 +142,7 @@ h2{
     display: flex;
     justify-content: space-between;
     background-color: var(--gray);
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
 }
 #taskList .taskRecord *{
@@ -152,8 +151,8 @@ h2{
 
 #taskList .taskRecord .content{
     color: var(--bg);
-    width: 35em;
     display: flex;
+    width: 80%;
 }
 
 /*チェックボックス*/
@@ -197,44 +196,49 @@ h2{
 }
 
 
-/*テキスト欄*/
+/*タスク、日付欄*/
+#taskList .taskRecord .content .tableDiv{
+    width: 100%;
+}
 
-#taskList .taskRecord .content .text{
+#taskList .taskRecord .content .tableDiv .text{
     color: var(--main);
     font-size: 1.1rem;
-    width: 22.5rem;
+    width: 100%;
 
 }
 
 
-/*日付、edit、deleteボタン*/
 
-#taskList .taskRecord .dateDiv{
+#taskList .taskRecord .content .tableDiv .dateDiv{
     display: flex;
-    padding-right: 3.8rem;
 }
 
 
-#taskList .taskRecord .dateDiv .placeholder{
+#taskList .taskRecord .content .tableDiv .dateDiv .placeholder{
     font-size: small;
     color: var(--gray);
     width: 9rem;
 }
 
-#taskList .taskRecord .dateDiv .placeholderEnable{
+#taskList .taskRecord .content .tableDiv .dateDiv .placeholderEnable{
     font-size: small;
     color: var(--main);
     width: 9rem;
 }
 
-#taskList .taskRecord .dateDiv .date{
-    width: 8rem;
+#taskList .taskRecord .content .tableDiv .dateDiv .date{
+    width: 7.6rem;
 }
 
+
+
+/*edit、deleteボタン*/
 #taskList .taskRecord .actions{
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
+    padding-left: 1.5rem;
     color: var(--black);
 }
 
