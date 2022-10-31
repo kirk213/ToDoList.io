@@ -44,45 +44,51 @@ header h1{
 #textarea{
     display: flex;
     flex-flow: column;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 0.25rem;
     border-radius: 1rem;
     background-color: var(--gray);
     width: 78.5%;
     height: 3rem;
 }
+
 #textarea *{
     background-color: var(--gray);
 }
 
 
 
-
 #newInputDiv{
     width: 95%;
-    padding-left: 0.5rem;
+    padding-left: 0.5rem;   
     background-color: transparent;
+    height: 1rem;
 }
+
 
 #newInput{
     width: 95%;
-    margin: auto;
+    background-color: transparent;
 }
 
-#datearea{
-    margin: auto;
-    padding: auto;
+.iPhone #newDateDiv{
+    width: 15rem;
+    padding-left: 0.5rem;
+    background-color: transparent;
 }
 
 #newDateDiv{
     width: 15rem;
     padding-left: 0.5rem;
-    background-color: transparent;
 }
+
+
 #newDate{
     width: 64%;
     color: var(--main);
+    background-color: transparent;
 }
+
 
 input,button{
     appearance: none;
@@ -96,7 +102,6 @@ input,button{
     width: 15.5%;
     padding: 0.25rem;
     border-radius: 20%;
-
     cursor: pointer;
 }
 #newSubmit:active{
@@ -160,7 +165,7 @@ h2{
     width: 96vw;
     margin: 1rem 0 1rem 0;
     background-color: var(--gray);
-    padding: 0.25rem 0 0.25rem 0.5rem;
+    padding: 0 0 0 0.5rem;
     border-radius: 1rem;
 }
 #taskList .taskRecord *{
@@ -170,7 +175,6 @@ h2{
 #taskList .taskRecord .content{
     color: var(--bg);
     display: flex;
-    padding-right: 0.5rem;
     width: auto;
 }
 
@@ -217,15 +221,25 @@ h2{
 
 /*テキスト欄*/
 
+.iPhone #taskList .taskRecord .content .tableDiv .text{
+    color: var(--main);
+    font-size: medium;
+    width: 86vw;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 #taskList .taskRecord .content .tableDiv .text{
     color: var(--main);
     font-size: medium;
     width: 86vw;
-
 }
 
 /*日付、edit、deleteボタン*/
 
+.iPhone #taskList .taskRecord .content .tableDiv .dateDiv{
+    display: flex;
+}
 #taskList .taskRecord .content .tableDiv .dateDiv{
     display: flex;
 }
@@ -242,11 +256,26 @@ h2{
     width: 8.75rem;
 }
 
+.iPhone #taskList .taskRecord .content .tableDiv .dateDiv .date{
+    font-size: small;
+    width: 7.6rem;
+}
+.Android #taskList .taskRecord .content .tableDiv .dateDiv .date{
+    font-size: small;
+    width: 6.7rem;
+}
 #taskList .taskRecord .content .tableDiv .dateDiv .date{
     font-size: small;
     width: 7.5rem;
 }
 
+
+.iPhone #taskList .taskRecord .actions{
+    width: 96vw;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
 #taskList .taskRecord .actions{
     width: 96vw;
     text-align: right;
@@ -257,6 +286,7 @@ h2{
     cursor: pointer;
     color: var(--black);
     padding: 0 0;
+    margin: 0;
     vertical-align: top;
 }
 

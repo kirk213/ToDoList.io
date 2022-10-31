@@ -1,7 +1,11 @@
 //インポート、エクスポート
 import {addTaskList} from "./addTaskList.js";
 import {submitBtn,deleteAll} from "./Buttons.js";
+import { getOs } from "./getOs.js";
 export {jsonArray,setJson};
+
+//デバイスチェックをして該当のクラス名を追加
+getOs();
 
 //データピッカーを呼び出す
 $(function() {
