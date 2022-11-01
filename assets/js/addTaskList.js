@@ -69,6 +69,7 @@ function addTaskList(){
         date.setAttribute("class","date");
         date.setAttribute("value",array.date);
         date.setAttribute("readOnly","true");
+        date.setAttribute("inputmode","none");
         
         dateDiv.appendChild(date);
         dateDiv.appendChild(placeholder);
