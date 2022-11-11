@@ -29,6 +29,7 @@ function submitBtn(e){
     date.value="";
     //addTaskListを呼び出してタスクリストの再表示
     addTaskList();
+    text.style.height="auto";
 }
 
 

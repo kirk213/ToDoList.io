@@ -6,18 +6,31 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
         <title>ToDo List</title>
         <link rel="stylesheet" href="./assets/css/mobileStyle.css" media="screen and (max-width:549px)">
-        <link rel="stylesheet" href="./assets/css/style.css" media="screen and (min-width:550px)">
+        <link rel="stylesheet" href="./assets/css/tabletStyle.css" media="screen and (min-width:550px) and (max-width:649px)">
+        <link rel="stylesheet" href="./assets/css/style.css" media="screen and (min-width:650px)">
+        <link rel="stylesheet" href="./assets/css/overlayStyle.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+        <div id="overlay">
+            <div id="overlayTask">
+                <div id="ctrlOverlayTask">
+                    <span id="closeBtn"></span>
+                </div>
+                <div id="parent">
+                    <textarea id="parentTask" readonly="true" rows="1"></textarea>
+                    <input id="parentDate" type="text" readonly="true">
+                </div>
+            </div>
+        </div>
         <header class="layout">
             <h1>New Task</h1>
             <div>
                 <form id="newToDo">
                     <div id="textarea">
                         <div id="newInputDiv">
-                            <input type="text" id="newInput" placeholder="タスクを入力してください">
+                            <textarea id="newInput" rows="1" placeholder="タスクを入力してください"></textarea>
                         </div>
                         <div id="newDateDiv">
                             <input type=text id="newDate" inputmode="none" placeholder="クリックして日時を選択">
@@ -27,7 +40,6 @@
                 </form>
             </div>
         </header>
-        
         <main class="layout">
             <div id="taskListHead">
                 <h2>Task List</h2>

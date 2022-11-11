@@ -1,6 +1,8 @@
 //インポート、エクスポート
 import {jsonArray,setJson} from "./main.js";
-export {addTaskList};
+import { test } from "./overlay.js";
+import { autoHeightTextarea } from "./textarea.js";
+export {addTaskList,jsonArray};
 
 //関数系
 function addTaskList(){
@@ -11,7 +13,7 @@ function addTaskList(){
     //htmlに追加されている要素を一度削除
     taskList.innerHTML="";
 
-    jsonArray.forEach(function(array){
+    jsonArray.forEach(function(array,index){
         //追加する要素の作成
         let taskRecord = document.createElement("div");
         taskRecord.classList.add("taskRecord");
@@ -46,11 +48,15 @@ function addTaskList(){
 
         
         //タスク
-        let text = document.createElement("input");
-        text.setAttribute("type","text");
+        let text = document.createElement("textarea");
         text.setAttribute("class","text");
-        text.setAttribute("value",array.text);
+        text.setAttribute("rows","1");
+        text.value=array.text;
         text.setAttribute("readOnly","true");
+        
+        /*let text = document.createElement("p");
+        text.setAttribute("class","text");
+        text.innerHTML=array.text;*/
         
         
         //編集時のテキストと日付
@@ -82,9 +88,12 @@ function addTaskList(){
         table.appendChild(dateDiv);
         content.appendChild(table);
         
-        //編集と削除
+        //詳細と編集と削除
         let actions = document.createElement("div");
         actions.classList.add("actions");
+        let detail = document.createElement("button");
+        detail.classList.add("detail");
+        detail.innerHTML="Detail";
         let edit = document.createElement("button");
         edit.classList.add("edit");
         edit.innerHTML="Edit";
@@ -92,6 +101,7 @@ function addTaskList(){
         del.classList.add("delete");
         del.innerHTML="Delete";
 
+        actions.appendChild(detail);
         actions.appendChild(edit);
         actions.appendChild(del);
     
@@ -100,7 +110,13 @@ function addTaskList(){
         taskRecord.appendChild(content);
         taskRecord.appendChild(actions);
         taskList.appendChild(taskRecord);
-        
+
+
+        //detailボタンを押した時の動作
+        detail.addEventListener('click',function(){
+            test(index,jsonArray);
+            autoHeightTextarea();
+        })
         
         //editボタンを押した時の動作
         edit.addEventListener('click',function(){
@@ -142,15 +158,21 @@ function addTaskList(){
             text.focus();
         });
     
-        
+
         //deleteボタンを押したときの動作
         del.addEventListener('click',function(){
-            //フィルターで対象のタスク以外をsetJson関数に渡すしてjsonArrayに代入
-            setJson(jsonArray.filter(function(arr){
-                return arr !== array;
-            }));
-            localStorage.setItem('formData',JSON.stringify(jsonArray));
-            addTaskList();
+            window.setTimeout(function(){
+                //タスクを消すか、y/nのポップアップを表示
+                let result = window.confirm("タスクを消しますか？");
+                if(result){
+                    //フィルターで対象のタスク以外をsetJson関数に渡すしてjsonArrayに代入
+                    setJson(jsonArray.filter(function(arr){
+                        return arr !== array;
+                    }));
+                    localStorage.setItem('formData',JSON.stringify(jsonArray));
+                    addTaskList();
+                };
+            },200);
         }); 
         
         //checkボタンを押したときの動作
@@ -165,4 +187,6 @@ function addTaskList(){
             }
         })  
     });
+    //textareaの行数自動調整
+    autoHeightTextarea();
 };

@@ -2,10 +2,15 @@
 import {addTaskList} from "./addTaskList.js";
 import {submitBtn,deleteAll} from "./Buttons.js";
 import { getOs } from "./getOs.js";
+import { autoHeightTextarea } from "./textarea.js";
 export {jsonArray,setJson};
 
 //デバイスチェックをして該当のクラス名を追加
 getOs();
+//ウィンドウサイズと合わせてテキストの折り返し調整
+window.addEventListener('resize', autoHeightTextarea);
+
+
 
 //データピッカーを呼び出す
 $(function() {

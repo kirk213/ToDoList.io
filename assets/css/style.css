@@ -1,7 +1,7 @@
 :root{
     --bg:rgb(36, 36, 36);
     --black:rgb(10, 10, 10);
-    --gray:rgb(66, 66, 66);
+    --gray:rgb(49, 49, 49);
     --blue:rgb(57, 197, 207);
     --red:rgb(201, 59, 59);
     --green:rgb(85, 194, 75);
@@ -18,6 +18,9 @@
 }
 
 
+body{
+    margin: 0;
+}
 
 /*ヘッダーレイアウト*/
 .layout{
@@ -34,7 +37,7 @@
 
 
 header h1{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 1;
 }
 
@@ -49,7 +52,7 @@ header h1{
     background-color: var(--gray);
 }
 #newToDo #textarea *{
-    background-color: var(--gray);
+    background-color:transparent;
 }
 
 input,button{
@@ -60,8 +63,9 @@ input,button{
     background-color: var(--gray);
 }
 
+
+
 #newInput{
-    font-size: medium;
     width: 100%;
 }
 
@@ -82,7 +86,6 @@ input,button{
     background-color: var(--green);
     transition: 0.2s all linear;
 }
-
 
 /*タスクリスト見出し、deleteAllボタン*/
 #taskListHead{
@@ -133,7 +136,8 @@ h2{
 
 #taskList{
     padding: 1rem 0;
-    height: auto+8rem;
+    margin-bottom: 8rem;
+    height: auto;
 }
 
 /*追加されるタスクのスタイル*/
@@ -205,7 +209,8 @@ h2{
     color: var(--main);
     font-size: 1.1rem;
     width: 100%;
-
+    overflow-wrap: break-word;
+    
 }
 
 
@@ -233,7 +238,7 @@ h2{
 
 
 
-/*edit、deleteボタン*/
+/*detail、edit、deleteボタン*/
 #taskList .taskRecord .actions{
     display: flex;
     justify-content: space-between;
@@ -248,11 +253,21 @@ h2{
     color: var(--black);
 }
 
+#taskList .taskRecord .actions .detail{
+    padding-right: 1rem;
+}
+#taskList .taskRecord .actions .detail:hover{
+    color: var(--green);
+    transition: 0.2s all linear;
+}
+
 #taskList .taskRecord .actions .edit{
     padding-right: 1.8rem;
+    padding-left: 1rem;
 }
 #taskList .taskRecord .actions .save{
     padding-right: 1.5rem;
+    padding-left: 0.88rem;
 }
 #taskList .taskRecord .actions .edit:hover{
     color: var(--blue);
